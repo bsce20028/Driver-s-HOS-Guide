@@ -20,7 +20,7 @@ for pickup and drop-off.
 | --- | --- |
 | Backend | Django 6 + Django REST Framework |
 | Frontend | React 19 (Vite) + Material UI (MUI) |
-| Map | Leaflet + react-leaflet, CARTO dark tiles |
+| Map | Leaflet + react-leaflet, CARTO Voyager tiles |
 | Routing | OSRM (`router.project-osrm.org`) — free, no key |
 | Geocoding | Nominatim (`nominatim.openstreetmap.org`) — free, no key |
 
@@ -47,7 +47,7 @@ frontend/
   src/
     components/      # TripForm, RouteMap, TripSummary, LogSheet
     api.js           # axios client
-    theme.js         # MUI dark theme
+    theme.js         # MUI light theme
     constants.js     # duty-status colors / formatters
 ```
 
@@ -143,30 +143,6 @@ break before driving passes 8 cumulative hours in a shift.
 
 - Submit a nonsense location (e.g. `asdkjhasd`) → a clear inline error appears.
 - Cycle slider is clamped to 0–70 and is sent as a number.
-
----
-
-## Deploy (live hosted version)
-
-Frontend → **Vercel**, backend → **Render** (or Railway). Both have free tiers.
-
-### Backend on Render
-
-1. New **Web Service** → point at this repo, root directory `backend`.
-2. Build command: `./build.sh` · Start command:
-   `gunicorn config.wsgi --bind 0.0.0.0:$PORT`.
-3. Environment variables (see `backend/.env.example`):
-   - `DJANGO_SECRET_KEY` — long random string
-   - `DJANGO_DEBUG=False`
-   - `DJANGO_ALLOWED_HOSTS=<your-render-host>`
-   - `CORS_ALLOWED_ORIGINS=https://<your-vercel-app>.vercel.app`
-   - `CSRF_TRUSTED_ORIGINS=https://<your-vercel-app>.vercel.app`
-
-### Frontend on Vercel
-
-1. Import the repo, root directory `frontend` (framework auto-detected as Vite).
-2. Environment variable: `VITE_API_BASE_URL=https://<your-render-host>/api`.
-3. Deploy. `vercel.json` already handles SPA rewrites.
 
 ---
 
