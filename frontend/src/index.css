@@ -1,0 +1,71 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(1100px 560px at 85% -8%, #dbeafe 0%, transparent 60%),
+    radial-gradient(900px 500px at -8% 8%, #e0f2fe 0%, transparent 55%), #f1f5f9;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.leaflet-container {
+  font-family: "Inter", sans-serif;
+  background: #e8eef5;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px -12px rgba(15, 23, 42, 0.25);
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px;
+  font-size: 13px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
